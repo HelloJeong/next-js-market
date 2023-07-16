@@ -12,3 +12,26 @@ docker-compose up
 ```
 
 pgadmin 페이지에서 server 생성 추가 할 때 Hostname에는 container_name(현재 파일 기준 `postgres`)을 입력해준다.
+
+# prisma[참고](https://authjs.dev/reference/adapter/prisma)
+
+```bash
+npx prisma db push
+```
+
+? - optional <br />
+@id - primary key<br />
+@unique - unique<br />
+@default(cuid()) - auto increment id<br />
+@relation<br />
+
+### \[...nextauth\].ts 파일
+
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+@auth/prisma-adapter 타입 문제 발생하여 @next-auth로
+
+### providers[참고](https://next-auth.js.org/providers/credentials)
+
+### configurations[참고](https://next-auth.js.org/configuration/nextjs)
+
+- matcher에 설정된 routing은 로그인된 유저만 갈 수 있게 됨

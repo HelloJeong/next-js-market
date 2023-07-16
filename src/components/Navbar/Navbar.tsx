@@ -3,8 +3,13 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import NavbarItem from "./NavbarItem";
+import { User } from "@prisma/client";
 
-const Navbar = () => {
+interface NavbarProps {
+  currentUser?: User | null;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const handleMenu = () => {
@@ -31,11 +36,13 @@ const Navbar = () => {
 
         {/* nav-items large screen */}
         <div className="hidden sm:block">
-          <NavbarItem />
+          <NavbarItem currentUser={currentUser} />
         </div>
       </div>
       {/* nav-items mobile */}
-      <div className="block sm:hidden">{showMenu === false ? null : <NavbarItem mobile />}</div>
+      <div className="block sm:hidden">
+        {showMenu === false ? null : <NavbarItem mobile currentUser={currentUser} />}
+      </div>
     </nav>
   );
 };
