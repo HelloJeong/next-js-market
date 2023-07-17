@@ -35,3 +35,9 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 ### configurations[참고](https://next-auth.js.org/configuration/nextjs)
 
 - matcher에 설정된 routing은 로그인된 유저만 갈 수 있게 됨
+
+### next-cloudinary[참고](https://next-cloudinary.spacejelly.dev/)
+
+- settings - upload - upload preset unsigned 변경
+- next.config.js 수정
+- dashboard - media library에서 upload 파일들 확인 가능

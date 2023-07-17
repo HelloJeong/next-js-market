@@ -54,6 +54,9 @@ model User {
   updatedAt DateTime @default(now()) @updatedAt
   
   userType      UserType @default(User)
+  
+  favoriteIds String[]
+  products Product[] // 1:n을 설정하는 것
 }
 
 model VerificationToken {
@@ -62,4 +65,20 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Product {
+  id  String @id @default(cuid())
+  title String
+  description String
+  imageSrc String
+  category String
+  userId String
+  price Int
+  latitude Float
+  longitude Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
