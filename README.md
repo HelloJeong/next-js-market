@@ -41,3 +41,11 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 - settings - upload - upload preset unsigned 변경
 - next.config.js 수정
 - dashboard - media library에서 upload 파일들 확인 가능
+
+### react-kakao-maps-sdk[참고](https://react-kakao-maps-sdk.jaeseokim.dev/)
+
+- `LatLng is not a constructor`
+
+  - sdk Script에서 `&autoload=false` 추가
+
+- KakaoMap componen를 dynamic import를 하지 않으면 에러가 남
