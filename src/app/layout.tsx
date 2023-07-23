@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import getCurrentUser from "./actions/getCurrentUser";
 import Script from "next/script";
+import ToastProvider from "@/components/Toast/ToastProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           type="text/javascript"
           src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_MAP_API_KEY}&libraries=services,clusterer&autoload=false`}
         ></Script>
+        <ToastProvider />
       </body>
     </html>
   );

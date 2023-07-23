@@ -49,3 +49,28 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
   - sdk Script에서 `&autoload=false` 추가
 
 - KakaoMap componen를 dynamic import를 하지 않으면 에러가 남
+
+### app/(home)
+
+- 경로를 건드리지 않는 그룹핑의 개념
+
+### react-toastify[참고](https://www.npmjs.com/package/react-toastify)
+
+- `import 'react-toastify/dist/ReactToastify.css';`
+- client 컴포넌트이기 때문에 component를 만들어서 layout에 붙이는 형태로 사용
+
+### dayjs[참고](https://day.js.org/)
+
+> relativeTime
+
+```javascript
+dayjs.extend(relativeTime);
+
+var a = dayjs("2000-01-01");
+
+dayjs("1999-01-01").from(a); // a year ago
+```
+
+### pagination
+
+> npm install @lucasmogari/react-pagination
