@@ -1,7 +1,7 @@
 import Container from "@/components/DesignBoxes/Container";
 import getProducts, { ProductsParams } from "../actions/getProducts";
 import EmptyState from "@/components/Home/EmptyState";
-import ProductCard from "@/components/Home/ProductCard";
+import ProductCard from "@/components/Products/ProductCard";
 import getCurrentUser from "../actions/getCurrentUser";
 import FloatingButton from "@/components/Home/FloatingButton";
 import Categories from "@/components/categories/Categories";

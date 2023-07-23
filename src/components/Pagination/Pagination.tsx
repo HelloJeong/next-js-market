@@ -27,7 +27,7 @@ const Pagination: React.FC<PaginationProps> = ({ page, totalItems, perPage }) =>
     <div className="flex items-center justify-center gap-2 mt-4">
       {[...arr].map((_, i) => {
         const { page, disabled, current } = getPageItem(i);
-        console.log("getPageItem(i)", getPageItem(i));
+        // console.log("getPageItem(i)", getPageItem(i));
 
         if (page === "previous") {
           return (
