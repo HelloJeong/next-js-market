@@ -76,3 +76,58 @@ dayjs("1999-01-01").from(a); // a year ago
 > npm install @lucasmogari/react-pagination
 
 ### react-loader-spinner[참고](https://www.npmjs.com/package/react-loader-spinner)
+
+### 채팅을 구현하는 여러가지 방법
+
+1. http polling
+1. websocket
+1. redis
+1. pusher 등
+
+해당 강의에서는 polling을 이용한 방법
+
+### polling
+
+- 클라이언트가 일정한 간격으로 서버에 요청을 보내서 결과를 전달받는 방식
+
+```typescript
+const POLL_TIME = 1000;
+
+setInterval(() => fetch("url"), POLL_TIME);
+```
+
+- 구현이 상당히 쉽지만 서버에 부담이 됨
+- 폴링의 주기가 짧으면 서버 성능에 부담
+- 주기가 길면 실시간성이 좋지 않음
+- 서버에서 바뀐 데이터가 없어도 계속 요청을 해야하고 결과를 줘야함
+
+### long polling [참고](https://systemdesignbasic.wordpress.com/2020/02/01/12-long-polling-vs-websockets-vs-server-sent-events/)
+
+- 요청을 보내면 서버가 대기하고 있다가 이벤트가 발생했거나 타임아웃이 발생할 때까지 기다린 후에 응답을 주게 됨
+- 클라이언트는 응답을 받자마자 다시 요청을 보낸다
+- 서버의 상태 변화가 많이 없다면 폴링 방식보다 서버의 부담이 줄어든다
+- 실시간 메시지 전달이 중요하지만, 서버의 상태 변화가 자주 발생하지 않는 서비스에 적합
+
+### streaming
+
+- 클라이언트에서 서버에 요청을 보내고 끊기지 않는 연결상태에서 계속 데이터를 수신
+- 양방향 소통보다는 서버에서 계속 요청을 받는 것에 유용
+
+### websocket
+
+- handshake을 위해서만 http 프로토콜을 이용하고 그 이후부터는 독립적인 프로토콜 ws를 사용
+- 임의로 연결을 끊기 전까지는 계속 연결이 되어 있음
+
+### SWR(stale-while-revalidate) [참고](https://swr.vercel.app/)
+
+- 데이터를 가져오기 위한 React Hook 라이브러리
+- 원격 데이터를 가져올 때 캐싱된 데이터가 있으면 그 데이터를 먼저 반환(stale)한 다음 가져오기 요청(revalidate)을 보내고, 마지막으로 최신 데이터와 함께 제공하는 라이브러리
+- 특징 및 장점
+  - Lightweight
+  - Realtime
+  - Suspense
+  - Pagination
+  - Backend Agnostic
+  - SSR / SSG Ready
+  - Typescript Ready
+  - Remote + Local
