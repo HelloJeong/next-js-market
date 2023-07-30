@@ -131,3 +131,8 @@ setInterval(() => fetch("url"), POLL_TIME);
   - SSR / SSG Ready
   - Typescript Ready
   - Remote + Local
+
+### useSWRMutation [참고](https://swr.vercel.app/docs/mutation#userswrmutation)
+
+- useSWR : 먼저 요청을 보내고 mutate를 사용할 수 있음
+- useSWRMutation : 요청을 보내지 않고 trigger를 통해 요청을 보냄

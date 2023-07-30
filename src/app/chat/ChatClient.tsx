@@ -1,8 +1,10 @@
 "use client";
+import Chat from "@/components/chat/Chat";
+import Contacts from "@/components/chat/Contacts";
 import { TUserWithChat } from "@/types";
 import { User } from "@prisma/client";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useSWR from "swr";
 
 interface ChatClientProps {
@@ -37,9 +39,18 @@ const ChatClient: React.FC<ChatClientProps> = ({ currentUser }) => {
         {/* md 보다 클때는 둘 다 보여야 하고 */}
 
         {/* md보다 작고 layout이 true라면 contact 안보임 */}
-        <section className={`md:flex ${layout && "hidden"}`}>{/* contact component */}</section>
+        <section className={`md:flex ${layout && "hidden"}`}>
+          <Contacts
+            users={users}
+            currentUser={currentUserWithMessage}
+            setLayout={setLayout}
+            setReceiver={setReceiver}
+          />
+        </section>
         {/* md보다 작고 layout이 false라면 chat 안보임 */}
-        <section className={`md:flex ${!layout && "hidden"}`}>{/* chat component */}</section>
+        <section className={`md:flex ${!layout && "hidden"}`}>
+          <Chat currentUser={currentUserWithMessage} receiver={receiver} setLayout={setLayout} />
+        </section>
       </div>
     </main>
   );

@@ -59,7 +59,7 @@ model User {
   
   products Product[] // 1:n을 설정하는 것
 
-  converstions Conversation[]
+  conversations Conversation[]
   sentMessage Message[] @relation("sender")
   receivedMessage Message[] @relation("receiver")
 }

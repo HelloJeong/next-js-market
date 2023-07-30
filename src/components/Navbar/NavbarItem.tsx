@@ -22,6 +22,9 @@ const NavbarItem: React.FC<NavItemProps> = ({ mobile, currentUser }) => {
       <li className="py-2 text-center border-b-4 cursor-pointer">
         <Link href="/user">User</Link>
       </li>
+      <li className="py-2 text-center border-b-4 cursor-pointer">
+        <Link href="/chat">Chat</Link>
+      </li>
       {currentUser ? (
         <li className="py-2 text-center border-b-4 cursor-pointer">
           <button onClick={() => signOut()}>Signout</button>
